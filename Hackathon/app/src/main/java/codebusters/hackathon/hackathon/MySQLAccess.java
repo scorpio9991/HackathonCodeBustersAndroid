@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hackethonandriod;
+package codebusters.hackathon.hackathon;
 
 /**
  *
@@ -56,8 +56,10 @@ public class MySQLAccess {
 
     }
 
-    public void newCity(String desc) {
-        
+    public int get_image_id(String path) throws Exception {
+        FileUpload parser = new FileUpload();
+        int image_id= parser.executeMultipartPost(path);
+        return image_id;
     }
 
     public void set_Author(String author) {
