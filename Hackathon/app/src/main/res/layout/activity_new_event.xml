@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="codebusters.hackathon.hackathon.NewEventActivity">
+    tools:context="codebusters.hackathon.hackathon.NewEventActivity"
+    android:background="@drawable/back">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="Názov problému" />
 
     <EditText
@@ -22,8 +23,8 @@
         android:layout_centerHorizontal="true"
         android:hint="Tu vložte názov problému"
         android:inputType="textCapSentences|text"
-        android:textSize="25sp"
-        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
         android:editable="true" />
 
     <TextView
@@ -33,7 +34,7 @@
         android:id="@+id/info"
         android:layout_below="@+id/edit_title_problem"
         android:textSize="20sp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
         android:layout_below="@+id/info"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:hint="Tu vložte popis Vášho problému"
         android:textSize="20sp"
@@ -60,7 +61,7 @@
         android:id="@+id/sidlisko"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginLeft="50dp"
@@ -79,10 +80,10 @@
         android:layout_marginRight="50dp" />
 
     <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/addPhoto"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:onClick="addPhoto"
         android:background="@drawable/camera2"
@@ -90,7 +91,7 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:text="Zrušiť"
         android:id="@+id/cancel"
         android:layout_alignParentBottom="true"
@@ -105,7 +106,7 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:text="Odoslať"
         android:id="@+id/send"
         android:layout_alignParentBottom="true"
@@ -121,7 +122,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:weightSum="2"
         android:layout_centerHorizontal="true"
         android:id="@+id/linLay"
@@ -139,9 +140,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
             android:clickable="true"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"/>
 
         <Spinner
             android:layout_width="wrap_content"
@@ -154,7 +154,6 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
             android:spinnerMode="dropdown" />
     </LinearLayout>
 </RelativeLayout>

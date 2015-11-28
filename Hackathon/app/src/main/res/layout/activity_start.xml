@@ -2,43 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/city">
 
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/filterBy"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="65dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="35dp" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="fill_parent"
-        android:layout_height="200sp"
-        android:layout_marginTop="-20sp"
-        android:src="@drawable/mesto" />
-
-    <ImageView
+    <!--<ImageView
         android:id="@+id/add"
         android:layout_width="70sp"
         android:layout_height="70sp"
         android:layout_alignBottom="@+id/list"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentRight="false"
         android:onClick="addClicked"
-        android:src="@drawable/button" />
+        android:src="@drawable/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Filtrovanie pozitívne/negatívne"
         android:id="@+id/filterBy"
-        android:layout_below="@+id/image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="65dp"
         android:textStyle="bold"
         android:textSize="13sp"
         android:layout_marginLeft="10dp"
@@ -49,7 +44,7 @@
         android:layout_height="50dp"
         android:id="@+id/possitiveButton"
         android:layout_toRightOf="@+id/filterBy"
-        android:onClick="positiveFilter"
+        android:onClick="possitiveFilter"
         android:layout_above="@+id/list"
         android:background="@drawable/like"
         android:layout_marginLeft="15dp"
@@ -60,10 +55,31 @@
         android:layout_height="50dp"
         android:id="@+id/negativeButton"
         android:layout_toRightOf="@+id/possitiveButton"
-        android:onClick="positiveFilter"
+        android:onClick="negativeFilter"
         android:layout_above="@+id/list"
         android:background="@drawable/unlike"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="-20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/list"
+        android:layout_alignLeft="@+id/list"
+        android:layout_alignStart="@+id/list"
+        android:layout_alignRight="@+id/list"
+        android:layout_alignBottom="@+id/list"
+        android:background="@drawable/paper"></LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:onClick="addClicked"
+        android:background="@drawable/button"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
