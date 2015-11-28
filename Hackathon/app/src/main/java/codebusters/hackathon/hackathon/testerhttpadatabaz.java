@@ -5,10 +5,11 @@ package codebusters.hackathon.hackathon;
  */
 public class testerhttpadatabaz {
     private FileUpload parser;
-            private void doshit(String source) throws Exception {
-                parser = new FileUpload();
-                int id= parser.executeMultipartPost(source);
-                System.out.println(id);
-            }
+
+    public void doshit(String source) throws Exception {
+        parser = new FileUpload();
+        int id = parser.executeMultipartPost(source);
+        System.out.println(id);
+    }
 
 }

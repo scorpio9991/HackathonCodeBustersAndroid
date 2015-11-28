@@ -58,7 +58,7 @@
         android:onClick="negativeFilter"
         android:layout_above="@+id/list"
         android:background="@drawable/unlike"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="-20dp" />
 
     <LinearLayout
@@ -71,5 +71,15 @@
         android:layout_alignRight="@+id/list"
         android:layout_alignBottom="@+id/list"
         android:background="@drawable/paper"></LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:onClick="addClicked"
+        android:background="@drawable/button"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
