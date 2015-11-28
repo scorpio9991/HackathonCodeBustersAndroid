@@ -9,13 +9,6 @@ package hackethonandriod;
  *
  * @author Ján
  */
-public class HackethonAndriod {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class TestDB {
     
 }
