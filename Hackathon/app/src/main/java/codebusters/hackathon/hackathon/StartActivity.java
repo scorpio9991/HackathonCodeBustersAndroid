@@ -1,6 +1,7 @@
 package codebusters.hackathon.hackathon;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ public class StartActivity extends Activity {
     }
 
     public void addClicked(View view) {
-        Intent event = new Intent(this, EventActivity.class);
+        Intent event = new Intent(this, LoginActivity.class);
         startActivity(event);
         finish();
     }
