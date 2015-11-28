@@ -2,84 +2,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/city">
+    android:background="@drawable/back"
+    tools:context=".MainActivity">
 
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/filterBy"
         android:layout_marginBottom="65dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="35dp" />
-
-    <!--<ImageView
-        android:id="@+id/add"
-        android:layout_width="70sp"
-        android:layout_height="70sp"
-        android:layout_alignBottom="@+id/list"
-        android:layout_alignParentRight="false"
-        android:onClick="addClicked"
-        android:src="@drawable/button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Filtrovanie pozitívne/negatívne"
-        android:id="@+id/filterBy"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="65dp"
-        android:textStyle="bold"
-        android:textSize="13sp"
-        android:layout_marginLeft="10dp"
-        android:linksClickable="false" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/possitiveButton"
-        android:layout_toRightOf="@+id/filterBy"
-        android:onClick="possitiveFilter"
-        android:layout_above="@+id/list"
-        android:background="@drawable/like"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="-20dp" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/negativeButton"
-        android:layout_toRightOf="@+id/possitiveButton"
-        android:onClick="negativeFilter"
-        android:layout_above="@+id/list"
-        android:background="@drawable/unlike"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="-20dp" />
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/possitive" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignTop="@+id/list"
-        android:layout_alignLeft="@+id/list"
-        android:layout_alignStart="@+id/list"
-        android:layout_alignRight="@+id/list"
         android:layout_alignBottom="@+id/list"
-        android:background="@drawable/paper"></LinearLayout>
+        android:layout_alignLeft="@+id/list"
+        android:layout_alignRight="@+id/list"
+        android:layout_alignStart="@+id/list"
+        android:layout_alignTop="@+id/list"
+        android:background="@drawable/paper"
+        android:orientation="horizontal"></LinearLayout>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
         android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
         android:onClick="addClicked"
-        android:background="@drawable/button"
-        android:layout_centerHorizontal="true" />
+        android:text="Pridať"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="KOŠICE"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <ImageButton
+        android:id="@+id/negative"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/unlike1"
+        android:onClick="negativeFilter"
+        android:layout_marginRight="50dp"
+        android:layout_alignTop="@+id/possitive"
+        android:layout_alignParentRight="true" />
+
+    <ImageButton
+        android:id="@+id/possitive"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/like1"
+        android:onClick="possitiveFilter"
+        android:drawableLeft="@drawable/like"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/city" />
 
 </RelativeLayout>

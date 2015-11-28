@@ -1,159 +1,154 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="codebusters.hackathon.hackathon.NewEventActivity"
-    android:background="@drawable/back">
+    android:background="@drawable/back"
+    android:fillViewport="true"
+    tools:context="codebusters.hackathon.hackathon.NewEventActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleProblem"
-        android:layout_centerHorizontal="true"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:text="Názov problému" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_title_problem"
-        android:layout_below="@+id/titleProblem"
-        android:layout_centerHorizontal="true"
-        android:hint="Tu vložte názov problému"
-        android:inputType="textCapSentences|text"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:editable="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Popis problému"
-        android:id="@+id/info"
-        android:layout_below="@+id/edit_title_problem"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/infoProblem"
-        android:layout_below="@+id/info"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:hint="Tu vložte popis Vášho problému"
-        android:textSize="20sp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:editable="true"
-        android:layout_above="@+id/sidlisko" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sídlisko"
-        android:id="@+id/sidlisko"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="50dp"
-        android:layout_above="@+id/linLay" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ulica"
-        android:id="@+id/street"
-        android:layout_alignTop="@+id/sidlisko"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="false"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginRight="50dp" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/addPhoto"
-        android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="addPhoto"
-        android:background="@drawable/camera2"
-        android:layout_above="@+id/cancel" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Zrušiť"
-        android:id="@+id/cancel"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="true"
-        android:onClick="onCancelClicked"
-        android:textStyle="bold"
-        android:textSize="20sp" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Odoslať"
-        android:id="@+id/send"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="false"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:onClick="onSendClicked"
-        android:clickable="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:weightSum="2"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linLay"
-        android:layout_above="@+id/addPhoto">
+        android:layout_height="match_parent">
 
-        <Spinner
+        <TextView
+            android:id="@+id/titleProblem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sidliskoSpinner"
-            android:layout_below="@+id/sidlisko"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Názov problému"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_title_problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleProblem"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:editable="true"
+            android:hint="Tu vložte názov problému"
+            android:inputType="textCapSentences|text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_title_problem"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Popis problému"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/infoProblem"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="false"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:editable="true"
+            android:hint="Tu vložte popis Vášho problému"
+            android:textSize="20sp"
+            android:layout_below="@+id/info"
+            android:longClickable="false" />
+
+        <TextView
+            android:id="@+id/sidlisko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sídlisko"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/infoProblem" />
+
+        <TextView
+            android:id="@+id/street"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ulica"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/sidliskoSpinner" />
+
+        <Button
+            android:id="@+id/addPhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/camera2"
+            android:onClick="addPhoto"
+            android:layout_below="@+id/streetSpinner" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="false"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="false"
-            android:layout_alignLeft="@+id/sidlisko"
-            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             android:clickable="true"
-            android:spinnerMode="dropdown"/>
+            android:onClick="onCancelClicked"
+            android:text="Zrušiť"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/addPhoto" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="false"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:onClick="onSendClicked"
+            android:text="Odoslať"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/cancel"
+            android:layout_alignParentRight="true" />
 
         <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/streetSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="false"
-            android:layout_below="@+id/street"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
+            android:id="@+id/sidliskoSpinner"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:spinnerMode="dropdown"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/sidlisko" />
+
+        <Spinner
+            android:id="@+id/streetSpinner"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:spinnerMode="dropdown" />
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_weight="1"
+            android:spinnerMode="dropdown"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/street" />
+
+    </RelativeLayout>
+</ScrollView>

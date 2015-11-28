@@ -25,23 +25,9 @@ public class StartActivity extends Activity {
     }
 
     public void addClicked(View view) {
-        /*Intent event = new Intent(this, LoginActivity.class);
+        Intent event = new Intent(this, LoginActivity.class);
         startActivity(event);
-        finish();*/
-
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, 0);
-
-
-
-        testerhttpadatabaz test = new testerhttpadatabaz();
-        try {
-            test.doshit(pathS);
-            Log.e("hala", pathS);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        finish();
     }
 
     @Override
