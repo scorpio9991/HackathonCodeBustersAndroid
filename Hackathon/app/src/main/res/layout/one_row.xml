@@ -36,7 +36,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/like"
-                android:background="#ffff2113"
+                android:background="@drawable/star"
                 android:clickable="true"
                 android:onClick="likeClicked"
                 android:layout_marginLeft="10dp"
@@ -53,7 +53,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:background="#ffffe700" />
+                android:background="@drawable/camera"
+                android:visibility="invisible" />
         </RelativeLayout>
 
     </LinearLayout>

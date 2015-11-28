@@ -2,70 +2,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="codebusters.hackathon.hackathon.EventActivity">
+    tools:context="codebusters.hackathon.hackathon.EventActivity"
+    android:background="@drawable/back"
+    android:clickable="false">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="codebusters.hackathon.hackathon.EventActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/broken_tree" />
 
-    <TextView
-        android:id="@+id/titleOfProblem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="10dp"
-        android:hint="Názov problému"
-        android:paddingLeft="15dp"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        <View
+            android:id="@+id/line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:background="#ff6e6e6e" />
 
-    <TextView
-        android:id="@+id/info"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_below="@+id/titleOfProblem"
-        android:layout_marginTop="10dp"
-        android:hint="popis problému"
-        android:paddingLeft="15dp"
-        android:textSize="25sp" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_marginTop="10dp"
+            android:text="Názov problému"
+            android:textColor="#ff000000"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp" />
 
-    <TextView
-        android:id="@+id/sidlisko"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_below="@+id/info"
-        android:hint="Názov sídliska"
-        android:paddingLeft="15dp"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:hint="názov problému"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/street"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/sidlisko"
-        android:hint="Ulica"
-        android:paddingRight="15dp"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleText"
+            android:layout_marginTop="10dp"
+            android:text="Popis problému"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp" />
 
-    <RatingBar
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/sidlisko"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/infoText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info"
+            android:hint="info text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="13sp"
+            android:layout_marginRight="10dp"
+            android:layout_above="@+id/sidlisko" />
+
+        <TextView
+            android:id="@+id/sidlisko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sídlisko:"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_above="@+id/sidliskoText" />
+
+        <TextView
+            android:id="@+id/sidliskoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="sidlisko text"
+            android:layout_marginLeft="10dp"
+            android:textSize="13sp"
+            android:layout_above="@+id/starButton"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/street"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/sidlisko"
+            android:text="Ulica"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/streetText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/street"
+            android:hint="street text"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/starButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/star"
+            android:gravity="left|center_vertical"
+            android:text="Mám rovnaký problém"
+            android:layout_marginBottom="20dp" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
