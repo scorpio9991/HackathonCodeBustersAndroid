@@ -35,13 +35,7 @@ public class StartActivity extends Activity {
 
 
 
-        testerhttpadatabaz test = new testerhttpadatabaz();
-        try {
-            test.doshit(pathS);
-            Log.e("hala", pathS);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
@@ -66,6 +60,13 @@ public class StartActivity extends Activity {
                             Toast.LENGTH_LONG).show();
                 }
                 break;
+        }
+        testerhttpadatabaz test = new testerhttpadatabaz();
+        try {
+            test.doshit(pathS);
+            Log.e("hala", pathS);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
