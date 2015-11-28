@@ -2,42 +2,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Kosice"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/filterBy"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="35dp" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/title" />
+        android:layout_height="200sp"
+        android:layout_marginTop="-20sp"
+        android:src="@drawable/mesto" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_alignLeft="@+id/image"
-        android:layout_below="@+id/image"
-        android:background="#ff676871"
-        android:layout_margin="10dp" />
-
-    <Button
+    <ImageView
         android:id="@+id/add"
+        android:layout_width="70sp"
+        android:layout_height="70sp"
+        android:layout_alignBottom="@+id/list"
+        android:layout_alignParentRight="true"
+        android:onClick="addClicked"
+        android:src="@drawable/button" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pridať"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
+        android:text="Filtrovanie pozitívne/negatívne"
+        android:id="@+id/filterBy"
+        android:layout_below="@+id/image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="15dp"
         android:textStyle="bold"
-        android:onClick="addClicked" />
+        android:textSize="13sp"
+        android:layout_marginLeft="10dp"
+        android:linksClickable="false" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/possitiveButton"
+        android:layout_toRightOf="@+id/filterBy"
+        android:onClick="positiveFilter"
+        android:layout_above="@+id/list"
+        android:background="@drawable/like"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="-20dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/negativeButton"
+        android:layout_toRightOf="@+id/possitiveButton"
+        android:onClick="positiveFilter"
+        android:layout_above="@+id/list"
+        android:background="@drawable/unlike"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="-20dp" />
+
 </RelativeLayout>

@@ -19,4 +19,8 @@ public class NewEventActivity extends Activity {
     public void onSendClicked(View view) {
 
     }
+
+    public void addPhoto(View view) {
+
+    }
 }
