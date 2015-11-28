@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -21,6 +20,7 @@ import java.io.InputStreamReader;
 public class FileUpload extends Activity {
     Bitmap bm;
     private byte[] byteImage_photo;
+    private StringBuilder s;
 
     /** Called when the activity is first created. */
     @Override
@@ -38,7 +38,7 @@ public class FileUpload extends Activity {
     }
 
     @SuppressWarnings("deprecation")
-    public void executeMultipartPost(String source) throws Exception {
+    public int executeMultipartPost(String source) throws Exception {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
 
@@ -66,17 +66,17 @@ public class FileUpload extends Activity {
            // byte[] data = bos.toByteArray();
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost postRequest = new HttpPost(
-                    "http://10.0.2.2/cfc/iphoneWebservice.cfc?returnformat=json&amp;method=testUpload");
+                    "ples.bossqone.eu");
            // ByteArrayBody bab = new ByteArrayBody(data, name);
          //   MultipartEntity reqEntity = new MultipartEntity(
                //     HttpMultipartMode.BROWSER_COMPATIBLE);
             postRequest.setEntity(new StringEntity(encodedImage));
-            HttpResponse resp = httpClient.execute(postRequest);
-            HttpEntity ent = resp.getEntity();
+           // HttpResponse resp = httpClient.execute(postRequest);
+           // HttpEntity ent = resp.getEntity();
             HttpResponse response = httpClient.execute(postRequest);
             BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
             String sResponse;
-            StringBuilder s = new StringBuilder();
+             s = new StringBuilder();
           //  System.out.println(reader);
             while ((sResponse = reader.readLine()) != null) {
                 s = s.append(sResponse);
@@ -87,5 +87,6 @@ public class FileUpload extends Activity {
             Log.e(e.getClass().getName(), e.getMessage());
             bm.recycle();
         }
+        return Integer.parseInt(s.toString());
     }
 }
