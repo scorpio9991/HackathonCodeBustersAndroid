@@ -71,7 +71,7 @@ public class FileUpload extends Activity {
            // byte[] data = bos.toByteArray();
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost postRequest = new HttpPost(
-                    "http://ples.bossqone.eu/upload.php");
+                    "http://ples.bossqone.eu/images/upload");
            // ByteArrayBody bab = new ByteArrayBody(data, name);
          //   MultipartEntity reqEntity = new MultipartEntity(
                //     HttpMultipartMode.BROWSER_COMPATIBLE);
@@ -103,6 +103,6 @@ public class FileUpload extends Activity {
     //        Log.e(e.getClass().getName(), e.getMessage());
     //        bm.recycle();
         }
-        return 1;// Integer.parseInt(s.toString());
+        return Integer.parseInt(s.toString());
     }
 }
