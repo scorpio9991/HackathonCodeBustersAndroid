@@ -10,22 +10,28 @@ import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +45,7 @@ public class NewEventActivity extends Activity {
     private EditText info;
 
     private Uri outputFileUri;
+    private String[] streets;
 
 
     @Override
@@ -56,11 +63,14 @@ public class NewEventActivity extends Activity {
                 "Krasna", "Nad Jazerom", "Juh", "Saca", "Polov", "Sidlisko Tahanovce", "KVP", "Dzungla",
                 "Vysne Opatske", "Lunik IX"};
 
+        String[] streets = getStreets();
+
         ArrayAdapter sidliskoAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, townDistrict);
         sidliskoSpinner.setAdapter(sidliskoAdapter);
         //sidliskoSpinner.setTe
 
-        streetSpinner.setAdapter(sidliskoAdapter);
+        ArrayAdapter streetsAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, streets);
+        streetSpinner.setAdapter(streetsAdapter);
     }
 
     public void onCancelClicked(View view) {
@@ -164,5 +174,21 @@ public class NewEventActivity extends Activity {
                 //viewImage.setImageBitmap(thumbnail);
             }
         }
+    }
+
+    public String[] getStreets() {
+        String name = sidliskoSpinner.getSelectedItem().toString();
+        String[] streets = null;
+        Log.e("NAME: ", name);
+        String path = name + ".txt";
+        try {
+            InputStream in = getApplication().getAssets().open(path);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "windows-1250"));
+            String line = reader.readLine();
+            streets = line.split(", ");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        return streets;
     }
 }

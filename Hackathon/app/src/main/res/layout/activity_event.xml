@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="codebusters.hackathon.hackathon.EventActivity"
-    android:background="@drawable/back"
     android:clickable="false">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -132,6 +131,14 @@
             android:gravity="left|center_vertical"
             android:text="Mám rovnaký problém"
             android:layout_marginBottom="20dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/line"
+            android:layout_alignLeft="@+id/line"
+            android:background="@drawable/city2"></LinearLayout>
 
     </RelativeLayout>
 

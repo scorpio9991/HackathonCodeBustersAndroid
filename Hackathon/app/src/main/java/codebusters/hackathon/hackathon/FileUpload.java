@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Base64;
-import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -26,7 +26,7 @@ public class FileUpload extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+     //   setContentView(R.layout.activity_start);
        // try {
             // bm = BitmapFactory.decodeResource(getResources(),
             // R.drawable.forest);
@@ -39,16 +39,21 @@ public class FileUpload extends Activity {
 
     @SuppressWarnings("deprecation")
     public int executeMultipartPost(String source) throws Exception {
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
 
             options.inSampleSize = 4;
             options.inPurgeable = true;
+            System.out.println("SOURCE IN FILEUPLOAD"+source);
             Bitmap bm = BitmapFactory.decodeFile(source,options);
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-            bm.compress(Bitmap.CompressFormat.JPEG,40,baos);
+            bm.compress(Bitmap.CompressFormat.JPEG,50,baos);
 
 
             // bitmap object
@@ -66,27 +71,38 @@ public class FileUpload extends Activity {
            // byte[] data = bos.toByteArray();
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost postRequest = new HttpPost(
-                    "ples.bossqone.eu");
+                    "http://ples.bossqone.eu/upload.php");
            // ByteArrayBody bab = new ByteArrayBody(data, name);
          //   MultipartEntity reqEntity = new MultipartEntity(
                //     HttpMultipartMode.BROWSER_COMPATIBLE);
+
+          //  System.err.println("IMAGE CODE:" + encodedImage);
+
             postRequest.setEntity(new StringEntity(encodedImage));
+
            // HttpResponse resp = httpClient.execute(postRequest);
            // HttpEntity ent = resp.getEntity();
             HttpResponse response = httpClient.execute(postRequest);
+            if(response==null){
+                System.err.println("RESPONSE IS NULL");
+            } else {
+                System.err.println("RESPONE IS: "+response);
+            }
             BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
             String sResponse;
              s = new StringBuilder();
           //  System.out.println(reader);
-            while ((sResponse = reader.readLine()) != null) {
-                s = s.append(sResponse);
-            }
-            System.out.println("Response: " + s);
-        } catch (Exception e) {
-            // handle exception here
-            Log.e(e.getClass().getName(), e.getMessage());
-            bm.recycle();
+           while ((sResponse = reader.readLine()) != null) {
+               s = s.append(sResponse);
+
+           }
+            System.err.println("Response: " + s);
+       } catch (Exception e) {
+            System.err.println("I CATCHED SOMETHING: "+e);
+   //         // handle exception here
+    //        Log.e(e.getClass().getName(), e.getMessage());
+    //        bm.recycle();
         }
-        return Integer.parseInt(s.toString());
+        return 1;// Integer.parseInt(s.toString());
     }
 }

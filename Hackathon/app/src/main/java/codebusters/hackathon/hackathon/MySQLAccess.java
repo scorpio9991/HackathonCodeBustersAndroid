@@ -28,6 +28,7 @@ public class MySQLAccess {
         String url = "bossqone.eu";
         String user = "hackathon";
         String password = "hackathon";
+        this.author="Jozko Mrkvicka";
 
         try {
 

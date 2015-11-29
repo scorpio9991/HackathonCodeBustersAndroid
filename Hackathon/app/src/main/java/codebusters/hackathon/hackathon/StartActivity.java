@@ -28,6 +28,10 @@ public class StartActivity extends Activity {
         Intent event = new Intent(this, LoginActivity.class);
         startActivity(event);
         finish();
+
+        /*Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, 0);*/
     }
 
     @Override
@@ -53,6 +57,13 @@ public class StartActivity extends Activity {
                 }
                 break;
         }
+        /*testerhttpadatabaz test = new testerhttpadatabaz();
+        try {
+            test.doshit(pathS);
+            Log.e("hala", pathS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
 
     public void possitiveFilter(View view) {
