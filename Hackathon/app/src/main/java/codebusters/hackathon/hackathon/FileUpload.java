@@ -79,7 +79,6 @@ public class FileUpload extends Activity {
           //  System.err.println("IMAGE CODE:" + encodedImage);
 
             postRequest.setEntity(new StringEntity(encodedImage));
-
            // HttpResponse resp = httpClient.execute(postRequest);
            // HttpEntity ent = resp.getEntity();
             HttpResponse response = httpClient.execute(postRequest);
@@ -96,7 +95,7 @@ public class FileUpload extends Activity {
                s = s.append(sResponse);
 
            }
-            System.err.println("Response: " + s);
+         //   System.err.println("Response: " + s);
        } catch (Exception e) {
             System.err.println("I CATCHED SOMETHING: "+e);
    //         // handle exception here
