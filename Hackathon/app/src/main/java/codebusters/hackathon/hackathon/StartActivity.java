@@ -44,13 +44,13 @@ public class StartActivity extends Activity {
     }
 
     public void addClicked(View view) {
-        Intent event = new Intent(this, LoginActivity.class);
-        startActivity(event);
-        finish();
+       // Intent event = new Intent(this, LoginActivity.class);
+       // startActivity(event);
+        //finish();
 
-        /*Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, 0);*/
+        startActivityForResult(galleryIntent, 0);
     }
 
     @Override
@@ -76,13 +76,21 @@ public class StartActivity extends Activity {
                 }
                 break;
         }
-        /*testerhttpadatabaz test = new testerhttpadatabaz();
+        FileUpload upload = new FileUpload();
+        int image_id = 0;
         try {
-            test.doshit(pathS);
-            Log.e("hala", pathS);
+            image_id = upload.executeMultipartPost(pathS);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
+        Jsonuploader test = new Jsonuploader();
+
+        try {
+            test.executeMultipartPost(1,"Kosice, Jedlikova",0,"Vsetko je zadrbane",image_id,"Vsade je smrad a bordel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void possitiveFilter(View view) {

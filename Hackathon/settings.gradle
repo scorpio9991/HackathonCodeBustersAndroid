@@ -1,1 +1,1 @@
-include ':httpmime-4.5.1', ':app'
+include ':httpmime-4.5.1', ':app', ':c3p0-0.9.1-pre6', ':mysql-connector-java-3.0.17-ga-bin', ':lib'

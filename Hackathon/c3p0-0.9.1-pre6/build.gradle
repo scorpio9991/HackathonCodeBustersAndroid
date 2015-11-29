@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('c3p0-0.9.1-pre6.jar'))

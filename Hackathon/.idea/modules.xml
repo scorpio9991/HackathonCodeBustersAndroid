@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hackathon.iml" filepath="$PROJECT_DIR$/Hackathon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/c3p0-0.9.1-pre6/c3p0-0.9.1-pre6.iml" filepath="$PROJECT_DIR$/c3p0-0.9.1-pre6/c3p0-0.9.1-pre6.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpmime-4.5.1/httpmime-4.5.1.iml" filepath="$PROJECT_DIR$/httpmime-4.5.1/httpmime-4.5.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mysql-connector-java-3.0.17-ga-bin/mysql-connector-java-3.0.17-ga-bin.iml" filepath="$PROJECT_DIR$/mysql-connector-java-3.0.17-ga-bin/mysql-connector-java-3.0.17-ga-bin.iml" />
     </modules>
   </component>
 </project>
