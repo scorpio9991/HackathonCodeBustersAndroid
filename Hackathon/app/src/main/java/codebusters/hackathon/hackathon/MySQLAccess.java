@@ -22,7 +22,7 @@ public class MySQLAccess {
     private Connection con;
     private String author;
 
-    public void connectDataBase() {
+    public void startConnection() {
         con = null;
 
         String url = "bossqone.eu";
@@ -41,10 +41,11 @@ public class MySQLAccess {
         }
     }
 
-    public void write_into_entry(int user_id,String location,int category_id, int image_id, String title, String Description) throws SQLException {
+    public void write_into_entry(int user_id,String location,int category_id, String path, String title, String Description) throws Exception {
         if (this.author == null) {
             System.err.println("Input author?"); //TODO: Better author input
         }
+        int image_id=this.get_image_id(path);
         pst = null;
         pst = con.prepareStatement("INSERT INTO hackathon/entry(user_id,location,category_id,image_id,title,description) VALUES(?,?,?,?,?,?)");
         pst.setInt(1, user_id);
