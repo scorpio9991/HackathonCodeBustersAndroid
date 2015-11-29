@@ -6,7 +6,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:id="@+id/linLay">
 
         <TextView
             android:layout_width="wrap_content"
@@ -16,7 +17,8 @@
             android:layout_marginLeft="5dp"
             android:hint="Názov problému"
             android:textStyle="bold"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ff000000" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +27,8 @@
             android:textSize="20sp"
             android:hint="Lokácia fotky"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:textColor="#ff000000" />
 
         <RelativeLayout
             android:orientation="horizontal"
@@ -33,28 +36,29 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:id="@+id/like"
                 android:background="@drawable/star"
                 android:clickable="true"
                 android:onClick="likeClicked"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="5dp" />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:id="@+id/isPhoto"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/camera"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:layout_marginBottom="5dp" />
         </RelativeLayout>
 
     </LinearLayout>

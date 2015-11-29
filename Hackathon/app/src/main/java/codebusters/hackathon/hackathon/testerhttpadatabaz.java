@@ -3,7 +3,7 @@ package codebusters.hackathon.hackathon;
 /**
  * Created by Ján on 28/11/2015.
  */
-public class testerhttpadatabaz {
+/*public class testerhttpadatabaz {
     private FileUpload parser;
 
     public void doshit(String source) throws Exception {
@@ -12,4 +12,4 @@ public class testerhttpadatabaz {
         System.out.println(id);
     }
 
-}
+}*/

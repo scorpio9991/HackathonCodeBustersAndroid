@@ -132,14 +132,6 @@
             android:text="Mám rovnaký problém"
             android:layout_marginBottom="20dp" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/line"
-            android:layout_alignLeft="@+id/line"
-            android:background="@drawable/city2"></LinearLayout>
-
     </RelativeLayout>
 
 </RelativeLayout>

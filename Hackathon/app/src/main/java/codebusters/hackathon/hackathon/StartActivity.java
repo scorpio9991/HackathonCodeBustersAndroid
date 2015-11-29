@@ -8,13 +8,19 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StartActivity extends Activity {
 
     private ListView list;
     private String pathS;
+    private ArrayList<String> lists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,19 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
 
         list = (ListView) findViewById(R.id.list);
+
+        lists = new ArrayList<>();
+        String[] events = {"Spadnutý strom na ceste, Sever, Atletická 15, null",
+                "Autonehoda, Západ, Bernolákova 28"
+        };
+        for (String string : events) {
+            lists.add(string);
+        }
+
+        ArrayAdapter adapter = new EventAdapter(getApplicationContext(), lists);
+        list.setAdapter(adapter);
+
+
     }
 
     public void addClicked(View view) {

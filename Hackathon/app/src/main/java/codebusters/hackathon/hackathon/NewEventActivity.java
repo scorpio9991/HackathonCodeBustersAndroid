@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +21,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -45,7 +47,8 @@ public class NewEventActivity extends Activity {
     private EditText info;
 
     private Uri outputFileUri;
-    private String[] streets;
+    private List<String> streets;
+    private ArrayAdapter streetsAdapter;
 
 
     @Override
@@ -63,14 +66,45 @@ public class NewEventActivity extends Activity {
                 "Krasna", "Nad Jazerom", "Juh", "Saca", "Polov", "Sidlisko Tahanovce", "KVP", "Dzungla",
                 "Vysne Opatske", "Lunik IX"};
 
-        String[] streets = getStreets();
+        streets = new ArrayList<>();
+        getAllStreets(townDistrict);
 
         ArrayAdapter sidliskoAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, townDistrict);
         sidliskoSpinner.setAdapter(sidliskoAdapter);
+        sidliskoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                setSidlStreets();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         //sidliskoSpinner.setTe
 
-        ArrayAdapter streetsAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, streets);
+        streetsAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, streets);
         streetSpinner.setAdapter(streetsAdapter);
+    }
+
+    private void getAllStreets(String[] townDistrict) {
+        for (int count = 0; count < townDistrict.length; count++) {
+            try {
+                String[] lists;
+                String path = townDistrict[count].toLowerCase();
+                path = path.replace(" ", "_");
+                InputStream in = getApplication().getAssets().open(path + ".txt");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "windows-1250"));
+                String line = reader.readLine();
+                Log.e("HUHU", path);
+                lists = line.split(", ");
+                for (int counters = 0; counters < lists.length; counters++) {
+                    streets.add(lists[counters]);
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     public void onCancelClicked(View view) {
@@ -84,27 +118,23 @@ public class NewEventActivity extends Activity {
     }
 
     public void addPhoto(View view) {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
+        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (options[item].equals("Take Photo"))
-                {
+                if (options[item].equals("Take Photo")) {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
                     startActivityForResult(intent, 1);
-                }
-                else if (options[item].equals("Choose from Gallery"))
-                {
-                    Intent intent = new   Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(intent, 2);
 
-                }
-                else if (options[item].equals("Cancel")) {
+                } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
             }
@@ -161,7 +191,7 @@ public class NewEventActivity extends Activity {
             } else if (requestCode == 2) {
 
                 Uri selectedImage = data.getData();
-                String[] filePath = { MediaStore.Images.Media.DATA };
+                String[] filePath = {MediaStore.Images.Media.DATA};
                 Cursor c = getContentResolver().query(selectedImage, filePath, null, null, null);
                 c.moveToFirst();
                 int columnIndex = c.getColumnIndex(filePath[0]);
@@ -176,19 +206,25 @@ public class NewEventActivity extends Activity {
         }
     }
 
-    public String[] getStreets() {
+    public void setSidlStreets() {
+        String[] lists;
         String name = sidliskoSpinner.getSelectedItem().toString();
-        String[] streets = null;
         Log.e("NAME: ", name);
         String path = name + ".txt";
         try {
             InputStream in = getApplication().getAssets().open(path);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in, "windows-1250"));
             String line = reader.readLine();
-            streets = line.split(", ");
+            lists = line.split(", ");
+            streets.clear();
+            for (int counters = 0; counters < lists.length; counters++) {
+                streets.add(lists[counters]);
+            }
+
+            streetsAdapter.notifyDataSetChanged();
+
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        return streets;
     }
 }

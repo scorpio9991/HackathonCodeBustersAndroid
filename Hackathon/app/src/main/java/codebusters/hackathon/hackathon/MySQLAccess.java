@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySQLAccess {
-
+/*
     private PreparedStatement pst;
     private Connection con;
     private String author;
@@ -82,7 +82,7 @@ public class MySQLAccess {
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
         }
     }
-
+*/
 }
 
 

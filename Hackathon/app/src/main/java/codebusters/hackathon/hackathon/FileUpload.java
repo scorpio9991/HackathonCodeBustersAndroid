@@ -18,12 +18,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 
 public class FileUpload extends Activity {
-    Bitmap bm;
+   /* Bitmap bm;
     private byte[] byteImage_photo;
     private StringBuilder s;
 
     /** Called when the activity is first created. */
-    @Override
+   /* @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      //   setContentView(R.layout.activity_start);
@@ -104,5 +104,5 @@ public class FileUpload extends Activity {
     //        bm.recycle();
         }
         return Integer.parseInt(s.toString());
-    }
+    }*/
 }

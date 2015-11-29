@@ -24,7 +24,8 @@
         android:layout_alignStart="@+id/list"
         android:layout_alignTop="@+id/list"
         android:background="@drawable/paper"
-        android:orientation="horizontal"></LinearLayout>
+        android:orientation="horizontal"
+        android:visibility="invisible"></LinearLayout>
 
     <Button
         android:id="@+id/button"
